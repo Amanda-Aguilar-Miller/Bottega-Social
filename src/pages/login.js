@@ -64,7 +64,7 @@ componentWillReceiveProps(nextProps){
           <Typography variant="h2" className={classes.pageTitle1}>
             Social
           </Typography>
-          <Typography variant="h7" className={classes.pageTitle}>
+          <Typography variant="h6" className={classes.pageTitle}>
             Login
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
