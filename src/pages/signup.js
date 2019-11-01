@@ -66,9 +66,6 @@ class signup extends Component {
           <Typography variant="h2" className={classes.pageTitle1}>
             Social
           </Typography>
-          <Typography variant="h7" className={classes.pageTitle}>
-            Signup
-          </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
               id="email"
