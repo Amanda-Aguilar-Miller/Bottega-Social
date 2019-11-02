@@ -56,7 +56,8 @@ export default {
     marginBottom: 20
   },
   paper: {
-    padding: 20
+    padding: 20,
+    marginTop: 65
   },
   profile: {
     '& .image-wrapper': {

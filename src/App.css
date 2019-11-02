@@ -23,3 +23,8 @@ body{
 a{
   text-decoration: none;
 }
+
+.home-logo{
+  margin-left: 35vw;
+  margin-bottom: 3vh
+}

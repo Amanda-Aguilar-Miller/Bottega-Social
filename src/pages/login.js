@@ -1,21 +1,20 @@
-import React, { Component } from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import PropTypes from "prop-types";
-import AppIcon from "../images/bottega-logo.png";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import withStyles from '@material-ui/core/styles/withStyles';
+import PropTypes from 'prop-types';
+import AppIcon from '../images/bottega-logo.png';
+import { Link } from 'react-router-dom';
 
-//MUI
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
+// MUI Stuff
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+// Redux stuff
+import { connect } from 'react-redux';
+import { loginUser } from '../redux/actions/userActions';
 
-//redux
-import { connect } from "react-redux";
-import { loginUser } from "../redux/actions/userActions";
-
-const styles = theme => ({
+const styles = (theme) => ({
   ...theme.spreadThis
 });
 
@@ -23,19 +22,17 @@ class login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       errors: {}
     };
   }
-
-
-componentWillReceiveProps(nextProps){
-    if(nextProps.UI.errors){
-    this.setState({ errors: nextProps.UI.errors});
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
     }
-}
-  handleSubmit = event => {
+  }
+  handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
       email: this.state.email,
@@ -43,8 +40,7 @@ componentWillReceiveProps(nextProps){
     };
     this.props.loginUser(userData, this.props.history);
   };
-
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -60,8 +56,8 @@ componentWillReceiveProps(nextProps){
       <Grid container className={classes.form}>
         <Grid item sm />
         <Grid item sm>
-          <img src={AppIcon} alt="logo" className={classes.image} />
-          <Typography variant="h2" className={classes.pageTitle1}>
+          <img src={AppIcon} alt="bottega" className={classes.image} />
+          <Typography variant="h2" className={classes.pageTitle}>
             Social
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
@@ -85,7 +81,7 @@ componentWillReceiveProps(nextProps){
               className={classes.textField}
               helperText={errors.password}
               error={errors.password ? true : false}
-              value={this.state.pasword}
+              value={this.state.password}
               onChange={this.handleChange}
               fullWidth
             />
@@ -108,7 +104,7 @@ componentWillReceiveProps(nextProps){
             </Button>
             <br />
             <small>
-              Dont have an account? Sign up <Link to="/signup">here</Link>
+              dont have an account ? sign up <Link to="/signup">here</Link>
             </small>
           </form>
         </Grid>
@@ -125,7 +121,7 @@ login.propTypes = {
   UI: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
   UI: state.UI
 });
